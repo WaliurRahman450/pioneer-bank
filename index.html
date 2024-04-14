@@ -74,11 +74,16 @@
         {
             const depositAmount = document.getElementById("depositAmount").value;
             const depositNumber = parseFloat(depositAmount);
-           
-            
-            updateSpanText("currentDeposit",depositNumber);
-            updateSpanText("currentBalance",depositNumber);
-            document.getElementById("depositAmount").value = "";
+            if(depositNumber < 0)
+                {
+                    alert("Deposit amount can't be negative");
+                }
+            else
+            {
+                updateSpanText("currentDeposit",depositNumber);
+                updateSpanText("currentBalance",depositNumber);
+                document.getElementById("depositAmount").value = "";
+            }
         })
         const withdrawBtn = document.getElementById("addWithdraw");
         withdrawBtn.addEventListener("click",function()
